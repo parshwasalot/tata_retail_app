@@ -127,6 +127,22 @@ class Invoice {
     );
   }
 
+  // Create Invoice from a map with already constructed items
+  static Invoice fromMap(
+    Map<String, dynamic> data,
+    String docId,
+    List<InvoiceItem> items,
+  ) {
+    return Invoice(
+      id: docId,
+      customerId: data['customerId'] ?? '',
+      customerName: data['customerName'] ?? 'Unknown Customer',
+      items: items,
+      timestamp: (data['timestamp'] as Timestamp?)?.toDate() ?? DateTime.now(),
+      cashierName: data['cashierName'] ?? 'Unknown Cashier',
+    );
+  }
+
   // Convert Invoice to a map for Firestore
   Map<String, dynamic> toMap() {
     return {
