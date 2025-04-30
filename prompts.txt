@@ -1,0 +1,115 @@
+# Flutter GST Billing App Development Prompts
+
+I'll provide you with a series of prompts to help you create a Flutter-based GST Billing App prototype with GitHub Copilot. These prompts will guide you through the development process step by step.
+
+## 1. Project Setup
+
+```
+Create a new Flutter project named 'gst_billing_app' with a clean architecture structure. Set up the basic folder structure with lib/models, lib/screens, lib/widgets, lib/services, and lib/utils folders. Initialize a material app with a light theme that uses blue as the primary color and white as the background color.
+```
+
+## 2. Product Model
+
+```
+Create a Product model class in lib/models/product.dart with fields for id, name, price, gstPercentage (enum with values 5, 12, 18, 28), and quantity. Include methods to calculate CGST, SGST, and total price according to the formula: CGST = (Price × GST %) / 2, SGST = (Price × GST %) / 2, Total Price = Price + CGST + SGST.
+```
+
+## 3. Bill/Invoice Model
+
+```
+Create an Invoice model in lib/models/invoice.dart with fields for invoiceId, customerName (optional), dateTime, products (List<Product>), and methods to calculate subtotal, total CGST, total SGST, and grand total. Add a toJson and fromJson method for data persistence.
+```
+
+## 4. Local Storage Service
+
+```
+Create a storage service using Hive or shared_preferences in lib/services/storage_service.dart to store and retrieve product catalog and past invoices. Include methods to add, retrieve, update, and delete products and invoices.
+```
+
+## 5. Home Screen
+
+```
+Create a HomeScreen widget in lib/screens/home_screen.dart with a bottom navigation bar for switching between "Billing", "Products", and "History" screens. Implement a clean design with the TATA Retail Solutions logo or name at the top.
+```
+
+## 6. Product Management Screen
+
+```
+Create a ProductScreen widget in lib/screens/product_screen.dart that displays the product catalog in a ListView with options to add, edit, and delete products. Include a floating action button to add new products. For each product, display the name, price, and GST percentage in a visually appealing card layout.
+```
+
+## 7. Add/Edit Product Dialog
+
+```
+Create a reusable AddEditProductDialog widget in lib/widgets/add_edit_product_dialog.dart with form fields for product name, price, and GST percentage (dropdown with options for 5%, 12%, 18%, and 28%). Include form validation and save functionality.
+```
+
+## 8. Billing Screen
+
+```
+Create a BillingScreen widget in lib/screens/billing_screen.dart with a search bar to find products, a list of added products for the current bill, and a summary section showing subtotal, CGST, SGST, and total amount. Add buttons to increase/decrease product quantity, remove products, and finalize the bill.
+```
+
+## 9. Product Selection Widget
+
+```
+Create a ProductSelectionWidget in lib/widgets/product_selection_widget.dart that displays products in a grid or list view with search functionality. When a product is tapped, it should be added to the current bill with a quantity of 1.
+```
+
+## 10. Bill Summary Widget
+
+```
+Create a BillSummaryWidget in lib/widgets/bill_summary_widget.dart that displays the current bill's products, quantities, individual prices, GST amounts, and totals in a clean tabular format. Include a generate bill button at the bottom.
+```
+
+## 11. Invoice Generation
+
+```
+Create an InvoiceGenerator class in lib/services/invoice_generator.dart that takes the current bill data and creates a formatted invoice. Add functionality to share the invoice as PDF or print it directly from the app.
+```
+
+## 12. History Screen
+
+```
+Create a HistoryScreen widget in lib/screens/history_screen.dart that displays past invoices in a list sorted by date (newest first). Include search and filter options to find invoices by date range or customer name. Each invoice item should show the date, invoice number, and total amount.
+```
+
+## 13. Invoice Detail Screen
+
+```
+Create an InvoiceDetailScreen widget in lib/screens/invoice_detail_screen.dart that displays the full details of a selected invoice, including all products, their quantities, prices, GST amounts, and totals. Add buttons to reprint or share the invoice.
+```
+
+## 14. State Management
+
+```
+Implement state management using Provider or Riverpod to manage the app's state, including the product catalog, current bill, and invoice history. Create the necessary providers and consumer widgets.
+```
+
+## 15. Theme and Styling
+
+```
+Create a comprehensive theme in lib/utils/theme.dart with consistent colors, text styles, and widget themes for the entire app. Use TATA brand colors if available or choose a professional color scheme. Ensure the app has a clean, modern look with good contrast for readability.
+```
+
+## 16. Main App Assembly
+
+```
+Update the main.dart file to initialize all services, register providers, and set up navigation routes. Configure the app to start with the HomeScreen and include proper error handling.
+```
+
+## 17. Testing
+
+```
+Create unit tests for the Product and Invoice models to ensure correct GST calculations. Add widget tests for the main screens to verify functionality.
+```
+
+## 18. App Icon and Splash Screen
+
+```
+Create a custom app icon and splash screen that represents TATA Retail Solutions and the billing functionality of the app.
+```
+
+These prompts should help you develop a complete GST Billing App prototype using GitHub Copilot. Each prompt builds on the previous ones to create a comprehensive solution that addresses the pain points mentioned in your requirements.
+
+Would you like me to provide more detailed implementation guidance for any specific part of the app?
